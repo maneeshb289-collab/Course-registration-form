@@ -1,0 +1,43 @@
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#eef3f8; --card:#ffffff; --ink:#14213d; --muted:#5b6b82;
+  --line:#cfd9e6; --accent:#0f766e; --accent-ink:#ffffff; --err:#b42318; --ok-bg:#e6f4f1;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1626; --card:#16223a; --ink:#e8eef8; --muted:#9db0cc;
+    --line:#2c3d5c; --accent:#3cc4b4; --accent-ink:#06201d; --err:#ff8a80; --ok-bg:#12302f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1626; --card:#16223a; --ink:#e8eef8; --muted:#9db0cc;
+  --line:#2c3d5c; --accent:#3cc4b4; --accent-ink:#06201d; --err:#ff8a80; --ok-bg:#12302f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+main{width:100%;max-width:460px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:32px 28px}
+h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.7rem;line-height:1.15;margin:0 0 6px}
+p.lead{margin:0 0 24px;color:var(--muted);font-size:.95rem}
+.field{margin-bottom:18px}
+label{display:block;font-weight:500;font-size:.9rem;margin-bottom:6px}
+input,select{width:100%;padding:11px 12px;font:inherit;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line);border-radius:8px}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.field.invalid input,.field.invalid select{border-color:var(--err)}
+.error{color:var(--err);font-size:.8rem;min-height:1.1em;margin-top:4px}
+button{width:100%;padding:12px;font:inherit;font-weight:500;color:var(--accent-ink);
+  background:var(--accent);border:0;border-radius:8px;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+.success{display:none;background:var(--ok-bg);border-radius:10px;padding:18px}
+.success h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;margin:0 0 8px;font-size:1.25rem}
+.success dl{margin:12px 0 16px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.92rem}
+.success dt{color:var(--muted)} .success dd{margin:0;word-break:break-word}
+.success button{background:transparent;color:var(--ink);border:1px solid var(--line)}

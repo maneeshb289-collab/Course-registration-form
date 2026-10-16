@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Course Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <div id="formWrap">
+    <h1>Register for a course</h1>
+    <p class="lead">Fill in your details and pick a course. We'll confirm by email.</p>
+    <form id="regForm" novalidate>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="Anita Sharma" required>
+        <div class="error" id="nameErr"></div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="anita@example.com" required>
+        <div class="error" id="emailErr"></div>
+      </div>
+      <div class="field">
+        <label for="mobile">Mobile number</label>
+        <input type="tel" id="mobile" name="mobile" autocomplete="tel" inputmode="numeric"
+               placeholder="9876543210" maxlength="10" required>
+        <div class="error" id="mobileErr"></div>
+      </div>
+      <div class="field">
+        <label for="course">Course</label>
+        <select id="course" name="course" required>
+          <option value="">Select a course</option>
+          <option>Web Development</option>
+          <option>Java Programming</option>
+          <option>Data Structures &amp; Algorithms</option>
+          <option>Python for Beginners</option>
+        </select>
+        <div class="error" id="courseErr"></div>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="success" id="success" role="status" aria-live="polite">
+    <h2>You're registered</h2>
+    <p>Here's what we received:</p>
+    <dl id="summary"></dl>
+    <button type="button" id="again">Register another person</button>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
